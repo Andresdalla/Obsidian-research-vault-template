@@ -1,6 +1,6 @@
-# BrainMaxxing
+# Obsidian research vault template
 
-A research vault for [Obsidian](https://obsidian.md/) built for deep exploration of complex technical topics -- zero knowledge proofs, machine learning, blockchain, AI, cryptography, and beyond.
+A research vault for [Obsidian](https://obsidian.md/) built for deep exploration of complex technical topics.
 
 Based on the [kepano vault template](https://github.com/kepano/kepano-obsidian), restructured from a personal life-tracking system into a technical research knowledge base.
 
