@@ -1,0 +1,36 @@
+filters:
+  and:
+    - '!file.name.contains("Template")'
+    - categories.contains(link("People"))
+properties:
+  file.name:
+    displayName: Name
+  note.org:
+    displayName: Org
+  note.affiliation:
+    displayName: Affiliation
+  note.topics:
+    displayName: Topics
+views:
+  - type: table
+    name: People
+    order:
+      - file.name
+      - org
+      - affiliation
+      - topics
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: Org
+    filters:
+      and:
+        - list(org).contains(this)
+    order:
+      - file.name
+      - affiliation
+      - topics
+    sort:
+      - property: file.name
+        direction: ASC

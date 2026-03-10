@@ -1,0 +1,60 @@
+filters:
+  and:
+    - categories.contains(link("Concepts"))
+    - '!file.name.contains("Template")'
+properties:
+  file.name:
+    displayName: Name
+  note.field:
+    displayName: Field
+  note.difficulty:
+    displayName: Difficulty
+  note.created:
+    displayName: Created
+views:
+  - type: table
+    name: Concepts
+    order:
+      - file.name
+      - field
+      - difficulty
+      - topics
+      - created
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: Learning
+    filters:
+      and:
+        - file.tags.contains("learning")
+    order:
+      - file.name
+      - field
+      - difficulty
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: Understood
+    filters:
+      and:
+        - file.tags.contains("understood")
+    order:
+      - file.name
+      - field
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: Field
+    filters:
+      and:
+        - list(field).contains(this)
+    order:
+      - file.name
+      - difficulty
+      - topics
+    sort:
+      - property: file.name
+        direction: ASC

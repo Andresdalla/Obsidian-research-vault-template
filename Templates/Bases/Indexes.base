@@ -1,0 +1,32 @@
+filters:
+  and:
+    - categories.contains(link("Indexes"))
+    - '!file.name.contains("Template")'
+properties:
+  file.name:
+    displayName: Name
+  note.field:
+    displayName: Field
+  note.created:
+    displayName: Created
+views:
+  - type: table
+    name: Indexes
+    order:
+      - file.name
+      - field
+      - created
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: Field
+    filters:
+      and:
+        - list(field).contains(this)
+    order:
+      - file.name
+      - created
+    sort:
+      - property: file.name
+        direction: ASC

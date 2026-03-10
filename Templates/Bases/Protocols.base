@@ -1,0 +1,51 @@
+filters:
+  and:
+    - categories.contains(link("Protocols"))
+    - '!file.name.contains("Template")'
+properties:
+  file.name:
+    displayName: Name
+  note.type:
+    displayName: Type
+  note.field:
+    displayName: Field
+  note.version:
+    displayName: Version
+  note.url:
+    displayName: URL
+views:
+  - type: table
+    name: Protocols
+    order:
+      - file.name
+      - type
+      - field
+      - version
+      - url
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: Type
+    filters:
+      and:
+        - list(type).contains(this)
+    order:
+      - file.name
+      - field
+      - version
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: Field
+    filters:
+      and:
+        - list(field).contains(this)
+    order:
+      - file.name
+      - type
+      - version
+    sort:
+      - property: file.name
+        direction: ASC

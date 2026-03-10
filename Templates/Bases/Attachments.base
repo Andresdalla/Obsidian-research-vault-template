@@ -1,0 +1,36 @@
+filters:
+  and:
+    - '!file.ext.containsAny("base", "md", "pdf", "canvas")'
+formulas:
+  Embeds: if(file.embeds[0].containsAny("jpg","gif","webp","jpeg","avif"), file.embeds[0])
+  Date: if(created,created,if(start,start))
+  links: file.backlinks
+properties:
+  formula.links:
+    displayName: Links
+views:
+  - type: cards
+    name: Images
+    filters:
+      and:
+        - this.file.hasLink(file)
+    order: []
+    sort:
+      - property: file.name
+        direction: ASC
+    image: file.file
+    cardSize: 70
+  - type: cards
+    name: All images
+    image: file.file
+    imageFit: ""
+  - type: table
+    name: Unused attachements
+    filters:
+      and:
+        - formula.links.isEmpty()
+    order:
+      - file.name
+      - formula.links
+    columnSize:
+      file.name: 414
