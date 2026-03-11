@@ -11,7 +11,7 @@
 <br>
 
 </div>
- By Andrés Dalla Rizza
+
 ---
 
 ## Architecture
