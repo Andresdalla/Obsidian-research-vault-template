@@ -25,7 +25,7 @@ The `categories` field in frontmatter is what connects a note to its database vi
 ## Folder Structure
 
 ```
-BrainMaxxing/
+research-vault/
   Categories/     -- Database views (one per category, embeds a .base file)
   References/     -- All your reference entries (papers, concepts, people, tools...)
   Notes/          -- Standalone notes, scratch work, deeper analysis
